@@ -43,9 +43,11 @@ docker run -d --name vk-lakekeeper \
   quay.io/lakekeeper/catalog:latest-main serve
 
 # 4. Trino: монтирую папку catalog/ целиком (bronze/silver/gold/bench/tpch)
+#    и свой config.properties (поднят лимит памяти на запрос до 4GB)
 docker run -d --name vk-trino \
   -p 8080:8080 \
   -v "$(pwd)/catalog:/etc/trino/catalog" \
+  -v "$(pwd)/trino/config.properties:/etc/trino/config.properties" \
   trinodb/trino:476
 
 docker ps --filter name=vk- --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'

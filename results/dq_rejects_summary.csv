@@ -1,0 +1,8 @@
+"source_table","reason","rows"
+"part","null_brand","10"
+"part","null_partkey","20"
+"part","size_out_of_1_50","30"
+"partsupp","availqty_negative","4"
+"partsupp","orphan_partkey","40"
+"partsupp","orphan_suppkey","20"
+"supplier","null_suppkey","5"

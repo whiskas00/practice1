@@ -17,6 +17,19 @@
 4. Показала schema evolution и time travel (включая восстановление после «аварии»).
 5. Подключила Spark к Bronze через тот же каталог Lakekeeper.
 
+## Ключевые результаты
+
+| Что | Результат |
+|---|---|
+| Gold vs эталонный Q16 (`tpch.sf10`) | 27 840 = 27 840 строк, EXCEPT в обе стороны = 0, sum(supplier_cnt) = 1 186 339 |
+| Проверки качества | в Bronze найдено всё подброшенное + 3 091 настоящий пробел в адресах; в Silver все нарушения = 0, в карантине 129 строк |
+| Размер Bronze Q16 | NONE 1234 МБ → SNAPPY 446–466 → ZSTD 314–317 → GZIP 291–301 МБ |
+| Время Q16 cold / warm | 4.5–5.7 с / 1.5–2.4 с (медианы), разница между кодеками в пределах шума |
+| Выбор | PARQUET + ZSTD на всех слоях |
+| Trino vs Spark (Q16) | Trino 1.8–5.6 с, Spark 3.3–13.6 с |
+
+Подробности и обоснования — в [`отчет.md`](отчет.md).
+
 ## Архитектура
 
 ```
@@ -64,6 +77,7 @@
 python3 bench/run_bench.py write write size
 python3 bench/run_bench.py query --rounds 3 --warm-runs 3
 python3 bench/summarize.py
+bench/run_concurrency.sh > results/concurrency_gold_q16.csv   # бонус: 10 потоков
 
 # 4. schema evolution и time travel
 python3 scripts/run_schema_evolution.py   # -> results/schema_evolution_log.md
@@ -74,7 +88,8 @@ mkdir -p spark/jars && cd spark/jars
 curl -fsSLO https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12/1.7.1/iceberg-spark-runtime-3.5_2.12-1.7.1.jar
 curl -fsSLO https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-aws-bundle/1.7.1/iceberg-aws-bundle-1.7.1.jar
 cd ../..
-spark/run_spark.sh -f spark/bronze_explore.sql
+spark/run_spark.sh -f spark/bronze_explore.sql      # Spark читает Bronze (на время Spark я останавливаю vk-trino — не хватает памяти)
+spark/run_spark.sh -f spark/q16_engine_compare.sql  # бонус: тот же Q16 в Spark
 ```
 
 Остановить, ничего не удаляя: `docker stop vk-trino vk-lakekeeper vk-pg vk-minio`.

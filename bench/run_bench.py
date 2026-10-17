@@ -56,7 +56,12 @@ def suffix(fmt, codec):
 def wait_trino():
     for _ in range(120):
         try:
-            # лёгкий запрос, чтобы Trino поднялся и каталог bench прогрузился (не трогает данные Q16)
+            # после рестарта координатор отвечает раньше, чем регистрируется рабочий узел
+            # (иначе "No nodes available"), поэтому жду активный узел и запрос, которому нужны воркеры.
+            # Запросы лёгкие и не трогают данные Q16.
+            if trino("SELECT count(*) FROM system.runtime.nodes WHERE state = 'active'").strip() != "1":
+                raise RuntimeError("узел ещё не активен")
+            trino("SELECT count(*) FROM tpch.tiny.nation")
             trino("SELECT count(*) FROM bench.information_schema.tables WHERE table_schema = 'lakehouse'")
             return
         except Exception:

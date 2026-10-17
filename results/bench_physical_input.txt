@@ -1,0 +1,36 @@
+=== parquet_none
+│  ├─ ScanFilter[table = bench:lakehouse.partsupp_parquet_none$data@8269117235609896249, dynamicFilters = {partkey = #df_942}]
+│  │      Input: 8000564 rows (137.34MB), Filtered: 0.00%, Physical input: 78.51MB, Physical input time: 4.95s, Splits: 13, Splits generation wait time: 712.37m
+--
+ScanFilter[table = bench:lakehouse.part_parquet_none$data@7033819071023983741, filterPredicate = ((brand <> varchar 'Brand#45') AND (size IN (integer '3', integ
+Input: 2000260 rows (117.54MB), Filtered: 85.16%, Physical input: 20.29MB, Physical input time: 226.56ms, Splits: 2, Splits generation wait time: 36.66ms
+--
+ScanFilterProject[table = bench:lakehouse.supplier_parquet_none$data@8534650115308865848, filterPredicate = $like(comment_10, LikePattern '[%Customer%Complaints
+Input: 100055 rows (7.27MB), Filtered: 99.94%, Physical input: 7.15MB, Physical input time: 77.99ms, Splits: 1, Splits generation wait time: 26.61ms
+=== parquet_zstd
+│  ├─ ScanFilter[table = bench:lakehouse.partsupp_parquet_zstd$data@349213851784732160, dynamicFilters = {partkey = #df_942}]
+│  │      Input: 8000564 rows (137.34MB), Filtered: 0.00%, Physical input: 19.07MB, Physical input time: 423.41ms, Splits: 8, Splits generation wait time: 320.7
+--
+ScanFilter[table = bench:lakehouse.part_parquet_zstd$data@5112856005841741320, filterPredicate = ((brand <> varchar 'Brand#45') AND (size IN (integer '3', integ
+Input: 2000260 rows (117.53MB), Filtered: 85.16%, Physical input: 6.86MB, Physical input time: 107.26ms, Splits: 2, Splits generation wait time: 11.99ms
+--
+ScanFilterProject[table = bench:lakehouse.supplier_parquet_zstd$data@840805988096275226, filterPredicate = $like(comment_10, LikePattern '[%Customer%Complaints%
+Input: 100055 rows (7.27MB), Filtered: 99.94%, Physical input: 1.73MB, Physical input time: 133.79us, Splits: 1, Splits generation wait time: 10.77ms
+=== orc_none
+│  ├─ ScanFilter[table = bench:lakehouse.partsupp_orc_none$data@3068894644216347460, dynamicFilters = {partkey = #df_942}]
+│  │      Input: 8000564 rows (137.34MB), Filtered: 0.00%, Physical input: 42.00MB, Physical input time: 4.74s, Splits: 21, Splits generation wait time: 286.98m
+--
+ScanFilter[table = bench:lakehouse.part_orc_none$data@1883443893065349804, filterPredicate = ((brand <> varchar 'Brand#45') AND (size IN (integer '3', integer '
+Input: 2000260 rows (116.26MB), Filtered: 85.16%, Physical input: 11.12MB, Physical input time: 157.20ms, Splits: 3, Splits generation wait time: 28.06ms
+--
+ScanFilterProject[table = bench:lakehouse.supplier_orc_none$data@1119788780252088764, filterPredicate = $like(comment_10, LikePattern '[%Customer%Complaints%]')
+Input: 100055 rows (7.23MB), Filtered: 99.94%, Physical input: 6.28MB, Physical input time: 66.49ms, Splits: 1, Splits generation wait time: 17.56ms
+=== orc_zstd
+│  ├─ ScanFilter[table = bench:lakehouse.partsupp_orc_zstd$data@4113750255943145905, dynamicFilters = {partkey = #df_942}]
+│  │      Input: 8000564 rows (137.34MB), Filtered: 0.00%, Physical input: 33.44MB, Physical input time: 562.88ms, Splits: 9, Splits generation wait time: 354.8
+--
+ScanFilter[table = bench:lakehouse.part_orc_zstd$data@2250477635001777560, filterPredicate = ((brand <> varchar 'Brand#45') AND (size IN (integer '3', integer '
+Input: 2000260 rows (117.20MB), Filtered: 85.16%, Physical input: 11.40MB, Physical input time: 92.40ms, Splits: 2, Splits generation wait time: 31.15ms
+--
+ScanFilterProject[table = bench:lakehouse.supplier_orc_zstd$data@8129573762635794735, filterPredicate = $like(comment_10, LikePattern '[%Customer%Complaints%]')
+Input: 100055 rows (7.23MB), Filtered: 99.94%, Physical input: 4.50MB, Physical input time: 23.07ms, Splits: 1, Splits generation wait time: 16.91ms

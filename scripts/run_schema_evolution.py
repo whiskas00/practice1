@@ -2,7 +2,7 @@
 """Schema evolution на копии Silver-таблицы silver.lakehouse.part.
 Показываю: ADD COLUMN, RENAME COLUMN, расширение типа (integer->bigint, decimal(15,2)->decimal(18,2)),
 что файлы данных не переписывались, старые строки = NULL, и что колонки в metadata.json идут по ID."""
-import json, os, subprocess
+import gzip, json, os, subprocess
 from demo_lib import Log, q, val, ROOT
 
 T = "silver.lakehouse.part_evo"
@@ -57,7 +57,10 @@ key = meta_path.replace("s3://", "")
 raw = subprocess.run(["docker", "run", "--rm", "--entrypoint", "/bin/sh", "--add-host", "host.docker.internal:host-gateway",
                       "pgsty/mc:latest", "-c",
                       f"mc alias set m http://host.docker.internal:9000 minioadmin minioadmin >/dev/null && mc cat m/{key}"],
-                     capture_output=True, text=True, check=True).stdout
+                     capture_output=True, check=True).stdout
+# Trino пишет метаданные сжатыми (*.gz.metadata.json)
+if raw[:2] == b"\x1f\x8b":
+    raw = gzip.decompress(raw)
 meta = json.loads(raw)
 with open(os.path.join(ROOT, "results", "schema_evolution_metadata.json"), "w") as f:
     json.dump({"metadata_file": meta_path,
@@ -68,7 +71,7 @@ with open(os.path.join(ROOT, "results", "schema_evolution_metadata.json"), "w") 
 lines = [f"Файл: `{meta_path}`", "", f"current-schema-id = {meta['current-schema-id']}, last-column-id = {meta['last-column-id']}", "",
          "| schema-id | изменённые/новые поля (id: name type) |", "|---|---|"]
 prev = {}
-for sch in meta["schemas"]:
+for sch in sorted(meta["schemas"], key=lambda x: x["schema-id"]):  # в файле они не по порядку
     cur = {fld["id"]: (fld["name"], fld["type"]) for fld in sch["fields"]}
     if not prev:
         diff = ", ".join(f"{i}: {n} {t}" for i, (n, t) in cur.items())

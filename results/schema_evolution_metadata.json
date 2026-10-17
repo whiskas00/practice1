@@ -1,0 +1,571 @@
+{
+  "metadata_file": "s3://silver/part_evo-69d3de9eee1845c19adadfc5b56d1026/metadata/00007-01a14992-8765-7d12-9c6e-67041045b641.gz.metadata.json",
+  "current-schema-id": 4,
+  "last-column-id": 18,
+  "schemas": [
+    {
+      "schema-id": 0,
+      "type": "struct",
+      "fields": [
+        {
+          "id": 1,
+          "name": "part_key",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "part_name",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "manufacturer",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "brand",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "brand_mfgr_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 6,
+          "name": "brand_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 7,
+          "name": "part_type",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "type_class",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "type_finish",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "type_material",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "part_size",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 12,
+          "name": "container",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "retail_price",
+          "required": false,
+          "type": "decimal(15, 2)"
+        },
+        {
+          "id": 14,
+          "name": "part_comment",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "_batch_id",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 16,
+          "name": "_loaded_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "_processed_at",
+          "required": false,
+          "type": "timestamptz"
+        }
+      ]
+    },
+    {
+      "schema-id": 2,
+      "type": "struct",
+      "fields": [
+        {
+          "id": 1,
+          "name": "part_key",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "part_name",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "manufacturer",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "brand",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "brand_mfgr_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 6,
+          "name": "brand_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 7,
+          "name": "part_type",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "type_class",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "type_finish",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "type_material",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "part_size",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 12,
+          "name": "container",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "retail_price",
+          "required": false,
+          "type": "decimal(15, 2)"
+        },
+        {
+          "id": 14,
+          "name": "comment_text",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "_batch_id",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 16,
+          "name": "_loaded_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "_processed_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 18,
+          "name": "price_band",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "schema-id": 3,
+      "type": "struct",
+      "fields": [
+        {
+          "id": 1,
+          "name": "part_key",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "part_name",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "manufacturer",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "brand",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "brand_mfgr_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 6,
+          "name": "brand_no",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "part_type",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "type_class",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "type_finish",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "type_material",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "part_size",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 12,
+          "name": "container",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "retail_price",
+          "required": false,
+          "type": "decimal(15, 2)"
+        },
+        {
+          "id": 14,
+          "name": "comment_text",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "_batch_id",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 16,
+          "name": "_loaded_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "_processed_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 18,
+          "name": "price_band",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "schema-id": 1,
+      "type": "struct",
+      "fields": [
+        {
+          "id": 1,
+          "name": "part_key",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "part_name",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "manufacturer",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "brand",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "brand_mfgr_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 6,
+          "name": "brand_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 7,
+          "name": "part_type",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "type_class",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "type_finish",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "type_material",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "part_size",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 12,
+          "name": "container",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "retail_price",
+          "required": false,
+          "type": "decimal(15, 2)"
+        },
+        {
+          "id": 14,
+          "name": "part_comment",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "_batch_id",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 16,
+          "name": "_loaded_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "_processed_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 18,
+          "name": "price_band",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "schema-id": 4,
+      "type": "struct",
+      "fields": [
+        {
+          "id": 1,
+          "name": "part_key",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 2,
+          "name": "part_name",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 3,
+          "name": "manufacturer",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 4,
+          "name": "brand",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 5,
+          "name": "brand_mfgr_no",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 6,
+          "name": "brand_no",
+          "required": false,
+          "type": "long"
+        },
+        {
+          "id": 7,
+          "name": "part_type",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 8,
+          "name": "type_class",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 9,
+          "name": "type_finish",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 10,
+          "name": "type_material",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 11,
+          "name": "part_size",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 12,
+          "name": "container",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 13,
+          "name": "retail_price",
+          "required": false,
+          "type": "decimal(18, 2)"
+        },
+        {
+          "id": 14,
+          "name": "comment_text",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "id": 15,
+          "name": "_batch_id",
+          "required": false,
+          "type": "int"
+        },
+        {
+          "id": 16,
+          "name": "_loaded_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 17,
+          "name": "_processed_at",
+          "required": false,
+          "type": "timestamptz"
+        },
+        {
+          "id": 18,
+          "name": "price_band",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

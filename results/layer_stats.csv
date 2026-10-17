@@ -1,0 +1,10 @@
+table,rows,data_files,size_bytes,size_mb,format,codec,partitioning
+bronze.lakehouse.part,2000260,6,42178084,40.22,PARQUET,ZSTD,day(_loaded_at)
+bronze.lakehouse.partsupp,8000564,13,287944804,274.61,PARQUET,ZSTD,day(_loaded_at)
+bronze.lakehouse.supplier,100055,3,5217319,4.98,PARQUET,ZSTD,day(_loaded_at)
+silver.lakehouse.part,2000000,4,47054874,44.88,PARQUET,ZSTD,нет
+silver.lakehouse.supplier,100000,1,5407084,5.16,PARQUET,ZSTD,нет
+silver.lakehouse.partsupp,8000000,11,298113361,284.30,PARQUET,ZSTD,нет
+silver.lakehouse.part_supplier,8000000,50,107878485,102.88,PARQUET,ZSTD,part_size
+silver.lakehouse.dq_rejects,129,3,3382,0.00,PARQUET,ZSTD,нет
+gold.lakehouse.q16_parts_supplier,27840,1,64049,0.06,PARQUET,ZSTD,нет

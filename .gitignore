@@ -1,0 +1,11 @@
+# данные, jar'ы, логи — не храним в git
+*.jar
+spark/jars/
+logs/
+*.log
+data/
+*.parquet
+*.orc
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/

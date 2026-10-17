@@ -25,7 +25,9 @@ log.run("1.1 Сейчас в таблице", f"SELECT count(*) AS rows_now, cou
 
 log.run("2. $snapshots — все версии таблицы",
         f"""SELECT committed_at, snapshot_id, parent_id, operation,
-       summary['total-records'] AS total_records, summary['deleted-records'] AS deleted_records
+       element_at(summary, 'total-records') AS total_records,
+       element_at(summary, 'added-position-deletes') AS added_pos_deletes,
+       element_at(summary, 'added-data-files') AS added_data_files
 FROM {S} ORDER BY committed_at""")
 log.run("2.1 $history — какая версия была текущей и когда",
         f"""SELECT made_current_at, snapshot_id, parent_id, is_current_ancestor

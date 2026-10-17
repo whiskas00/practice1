@@ -1,0 +1,46 @@
+lakehouse
+part
+partsupp
+supplier
+partkey             	bigint              	                    
+suppkey             	bigint              	                    
+availqty            	int                 	                    
+supplycost          	double              	                    
+comment             	string              	                    
+_batch_id           	int                 	                    
+_source             	string              	                    
+_loaded_at          	timestamp           	                    
+                    	                    	                    
+# Partitioning      	                    	                    
+Part 0              	days(_loaded_at)    	                    
+part	1	2000000
+part	2	260
+partsupp	1	8000000
+partsupp	2	564
+supplier	1	100000
+supplier	2	55
+2026-10-17 10:25:58.866	5542231776703053231	append	2000000
+2026-10-17 10:26:16.77	2369821194770352449	append	200
+2026-10-17 10:26:17.1	6045959307316249577	append	20
+2026-10-17 10:26:17.444	5849406791187418238	append	30
+2026-10-17 10:26:17.73	1503931820815435691	append	10
+13	274.61	PARQUET
+NULL	[Brand#53]	LARGE BRUSHED NICKEL	29
+NULL	[Brand#55]	PROMO PLATED TIN	8
+NULL	[Brand#31]	SMALL ANODIZED NICKEL	5
+NULL	[Brand#52]	PROMO BRUSHED STEEL	39
+NULL	[Brand#14]	ECONOMY PLATED TIN	9
+NULL	[Brand#11]	MEDIUM POLISHED COPPER	3
+NULL	[Brand#14]	ECONOMY ANODIZED STEEL	19
+NULL	[Brand#21]	LARGE BRUSHED BRASS	16
+27878	1186491
+
+# Время каждого запроса (Spark, строки 'Time taken' из stderr):
+Time taken: 1.352 seconds, Fetched 1 row(s)
+Time taken: 0.555 seconds, Fetched 3 row(s)
+Time taken: 0.16 seconds, Fetched 11 row(s)
+Time taken: 5.27 seconds, Fetched 6 row(s)
+Time taken: 0.329 seconds, Fetched 5 row(s)
+Time taken: 0.366 seconds, Fetched 1 row(s)
+Time taken: 0.39 seconds, Fetched 8 row(s)
+Time taken: 6.123 seconds, Fetched 1 row(s)

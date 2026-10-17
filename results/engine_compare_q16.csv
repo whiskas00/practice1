@@ -1,0 +1,9 @@
+engine,run,time_s,metric,rows
+spark,1,13.613,spark_time_taken,27878
+spark,2,6.716,spark_time_taken,27878
+spark,3,3.334,spark_time_taken,27878
+spark,4,5.035,spark_time_taken,27878
+trino,1,5.624,trino_exec_ms,27878
+trino,2,3.72,trino_exec_ms,27878
+trino,3,2.946,trino_exec_ms,27878
+trino,4,1.804,trino_exec_ms,27878

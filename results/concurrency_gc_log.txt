@@ -1,0 +1,4 @@
+2026-10-17T10:31:41.787Z	INFO	Notification Thread	io.airlift.stats.JmxGcMonitor	Major GC: application 0ms, stopped 4352ms: 6.44GB -> 2.17GB
+2026-10-17T11:04:58.262Z	INFO	Notification Thread	io.airlift.stats.JmxGcMonitor	Major GC: application 0ms, stopped 162ms: 667.13MB -> 645.50MB
+2026-10-17T11:22:13.538Z	INFO	Notification Thread	io.airlift.stats.JmxGcMonitor	Major GC: application 0ms, stopped 6661ms: 6.45GB -> 1.11GB
+# Trino OOMKilled=true, exit 137 после 3-й пачки из 10 потоков (docker inspect)

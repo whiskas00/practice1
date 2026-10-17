@@ -1,0 +1,7 @@
+mode,streams,run,wall_s
+single,1,1,2.523
+single,1,2,2.762
+single,1,3,2.68
+parallel,10,1,113.765
+parallel,10,2,87.011
+parallel,10,3,22.268

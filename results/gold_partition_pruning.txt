@@ -1,0 +1,4 @@
+ScanFilterProject[table = silver:lakehouse.part_supplier$data@3776696686241631622 constraint on [part_size], filterPredicate = ((brand <> varchar 'Brand#45') AND (supplier_has_complaints <> boolean 't
+Layout: [supplier_key:bigint, brand:varchar, part_type:varchar, part_size:integer]
+Estimates: {rows: 1278744 (34.33MB), cpu: 51.23M, memory: 0B, network: 0B}/{rows: 608380 (16.33MB), cpu: 51.23M, memory: 0B, network: 0B}/{rows: 608380 (16.33MB), cpu: 16.33M, memory: 0B, network: 0B}
+Input: 1278744 rows (108.78MB), Filtered: 7.21%, Physical input: 16.34MB, Physical input time: 29.04ms, Splits: 8, Splits generation wait time: 28.47ms

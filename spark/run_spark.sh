@@ -6,10 +6,13 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 TTY=""; [ $# -eq 0 ] && TTY="-it"
+# пути вида spark/xxx.sql превращаю в путь внутри контейнера (папка spark/ смонтирована в /opt/spark/work)
+ARGS=()
+for a in "$@"; do ARGS+=("$(printf '%s' "$a" | sed 's#^spark/#/opt/spark/work/#')"); done
 docker run --rm $TTY --name vk-spark \
   --add-host host.docker.internal:host-gateway \
   -v "$(pwd)/spark/conf:/opt/spark/conf" \
   -v "$(pwd)/spark/jars:/opt/spark/iceberg-jars" \
   -v "$(pwd)/spark:/opt/spark/work" \
   apache/spark:3.5.3 \
-  /opt/spark/bin/spark-sql "${@/#spark\//\/opt\/spark\/work\/}"
+  /opt/spark/bin/spark-sql ${ARGS[@]+"${ARGS[@]}"}
